@@ -1,0 +1,36 @@
+{
+  "name": "mongo-scraper",
+  "version": "1.0.0",
+  "description": "App that scrapes news articles from espn",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melissarburnham/mongo-scraper.git"
+  },
+  "author": "Melissa Burnham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melissarburnham/mongo-scraper/issues"
+  },
+  "homepage": "https://github.com/melissarburnham/mongo-scraper#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "hbs": "^4.0.1",
+    "mongojs": "^2.5.0",
+    "mongoose": "^5.1.1",
+    "morgan": "^1.9.0",
+    "path": "^0.12.7",
+    "request": "^2.86.0",
+    "request-promise": "^4.2.2",
+    "serve-favicon": "^2.5.0"
+  }
+}
