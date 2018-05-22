@@ -1,0 +1,18 @@
+  <header class="header">
+    <h1>SAVED ARTICLES</h1>
+    <nav class="button-group">
+      <a href="/"><button class="button-dark">Home</button></a>
+    </nav>
+  </header>
+
+{{#each articles}}
+  {{#if saved}}
+    <div>
+      <h5 class="title">{{title}}</h5>      
+      <a href="{{link}}" class="pull-right" target="_blank"></a>
+      <button class="addNote" data-id="{{_id}}">Add Note</button>
+      <button class="deleteArticles" data-id="{{_id}}">Delete Article</button>
+    <div>
+  {{/if}}
+{{/each}}
+
