@@ -11,6 +11,7 @@ const app = express();
 
 //setting up the database
 const config = require('./config/database.js');
+mongoose.Promise = Promise;
 mongoose
   .connect(config.database)
   .then( result => {

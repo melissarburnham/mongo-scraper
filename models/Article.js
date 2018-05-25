@@ -9,6 +9,9 @@ const ArticleSchema = new Schema({
   link: {
     type: String
   },
+  byline:{
+    type: String
+  },
   saved: {
     type: Boolean,
     default: false

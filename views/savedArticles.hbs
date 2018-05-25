@@ -10,9 +10,11 @@
     <div>
       <h5 class="title">{{title}}</h5>      
       <a href="{{link}}" class="pull-right" target="_blank"></a>
-      <button class="addNote" data-id="{{_id}}">Add Note</button>
+      <button class="addNote" data-toggle="modal" data-target="#modalNote" data-id="{{_id}}">Add Note</button>
       <button class="deleteArticles" data-id="{{_id}}">Delete Article</button>
     <div>
+  {{>modalNote article_id=_id article_title=title}}      
   {{/if}}
 {{/each}}
+
 

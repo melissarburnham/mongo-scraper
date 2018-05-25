@@ -5,16 +5,16 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title text-center">Add a note</h4>
+          <h4 class="modal-title text-center">Add a note to {{article_title}}</h4>
         </div>
         <div class="modal-body">
-          <input type="text" id="noteTitleEntry" class="noteInput" placeholder="Enter Title">
-          <input type="text" id="noteBodyEntry" class="noteInput" placeholder="Enter Body">
-          <div id="noteArea"></div>
+          <div id="noteArea">
+          <textarea type="text" id="noteInput" class="noteInput" placeholder="Enter Note"></textarea>
+          </div>
         </div>
         <div class="modal-footer">
-          <h5 class="instructions">Click the note to read it, or X to delete</h5>
-          <button type="button" id="submitNote">Save Note</button>
+          <h5 class="instructions">Click the X to delete the note!</h5>
+          <button type="submit" id="submitNote" data-id="{{article_id}}"> Save Note</button>
         </div>
       </div>
     </div>
