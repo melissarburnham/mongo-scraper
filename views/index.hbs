@@ -1,34 +1,44 @@
-
-<header class="header">
-  <h1 class="title">Mongo-Scraper</h1>
-  <nav class="button-group">
-    <button class="button-dark" id="scrape" data-toggle="modal" data-target="#modalScraped">Scrape New Articles</button>
-    <a href="/articles/viewSaved"><button class="button-dark" id="viewSaved">View Saved Articles</button></a>
-  </nav>
-</header>
-
-<div id='articles'></div>
-<div>
-{{#each articles}}
-  {{#unless saved}}
-    <div>
-      <a href="{{link}}" class="pull-right" target="_blank">
-      </a>
-      {{#if link}}
-        <a href="{{link}}" class="storyLink" target="_blank">
-          <h2 class="title">{{title}}</h2>
-        </a>
-        <div>
-          <p>{{byline}}</p>
+<div class="container">
+  <div>
+    <img src="/images/news1.png" alt="news" height="100" width="100%">
+  </div>
+  <header class="header text-center">
+    <h1 class="title">MemeBurn Mongo-Scraper</h1>
+    <br>
+    <nav class="button-group">
+      <button class="button-dark" id="scrape" data-toggle="modal" data-target="#modalScraped">Scrape New Articles</button>
+      <a href="/articles/viewSaved"><button class="button-dark" id="viewSaved">View Saved Articles</button></a>
+    </nav>
+    <br>    
+  </header>
+  <div class="row">
+    <div class="col-lg-12">
+      <div>
+        {{#each articles}}
+          {{#unless saved}}
+            <div>
+              <a href="{{link}}" target="_blank">
+              </a>
+              {{#if link}}
+                <a href="{{link}}" class="link" target="_blank">
+                  <h2 class="title">{{title}}</h2>
+                </a>
+                <div>
+                  <p class="byline">{{byline}}</p>
+                </div>
+              {{else}}
+                <h3 class="title">{{title}}</h3>
+              {{/if}}
+              <button id="saveArticle" data-id="{{_id}}">Save Article</button>
+            </div>
+          {{/unless}}
+        {{/each}}
         </div>
-      {{else}}
-        <h3 class="title">{{title}}</h3>
-      {{/if}}
-      <button class="storyButton" id="saveArticle" data-id="{{_id}}">Save Article</button>
     </div>
-  {{/unless}}
-{{/each}}
+  </div>
 </div>
+<br>
+
 {{>modalScrapeCount}}
 
 

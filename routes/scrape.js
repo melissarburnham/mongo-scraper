@@ -18,7 +18,6 @@ router.get('/', function(req, res) {
       console.log('each article!')
       // Save an empty result object
       var result = {};
-
       // Add the text and href of every link, and save them as properties of the result object
       result.title = $(this)
         .children("a")     
@@ -42,7 +41,6 @@ router.get('/', function(req, res) {
           return res.json(err);
         });
     });
-
     // If we were able to successfully scrape and save an Article, send a message to the client
     res.send('scrape complete');
   });
