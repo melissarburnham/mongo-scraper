@@ -44,7 +44,6 @@ $(document).ready(function () {
   let articleId = $(this).data('id');
   console.log("aID" + articleId);
   let body = $('#noteInput').val().trim()
-
   let noteObj = {
     articleId,
     body
@@ -55,6 +54,7 @@ $(document).ready(function () {
     data: noteObj})
   .then( response => window.location.href = '/articles/viewSaved')
   });
+
   //function that displays note in noteModal
 function displayNote(element, articleId){
   let $deleteButton = $('<button>')

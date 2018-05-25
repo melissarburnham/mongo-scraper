@@ -6,12 +6,8 @@ const db = require("../models");
 //post route to create a new note in the database
 router.post('/post/:id', function (req,res){
   let {body, articleId } = req.body;
-  console.log(body, articleId)
-  let note = {
-    body
-  }
   db.Note
-    .create(note)
+    .create({body})
     .then( result => {
       db.Article
         .findOneAndUpdate({_id: articleId}, {$push:{notes: result._id}})
