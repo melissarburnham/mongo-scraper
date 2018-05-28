@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const hbs = require('hbs')
 const path = require("path");
 const exphbs = require("express-handlebars");
+var favicon = require('serve-favicon');
 
 ///initializing the app
 const app = express();
@@ -24,7 +25,7 @@ app.use(logger('dev'));
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
 hbs.registerPartials(path.join(__dirname, '/views/partials'))
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')))
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
