@@ -13,10 +13,12 @@ $(document).ready(function () {
       $('#modalScraped').modal('show');
     })
   })
+
   // when user exits modal, stay on the page
   $('#modalScraped').on('hidden.bs.modal', e => {
     window.location.href = '/';
   });
+
   // saves the article
   $(document).on('click', '#saveArticle', function(e) {
     let articleId = $(this).data('id');
@@ -28,6 +30,7 @@ $(document).ready(function () {
         window.location.href = '/'
       )
   });
+
   // deletes article
    $('.deletearticles').on('click', function (e){
     e.preventDefault();
@@ -38,42 +41,52 @@ $(document).ready(function () {
     .then( response => window.location.href = '/articles/viewSaved')
   });
 
+  // $('#modalNote').on('hidden.bs.modal', '.modal', function () {
+  //   $(this).removeData('bs.modal');
+  // });
+
  // submits note to be display
- $('#submitNote').on('click', function (e){
-  e.preventDefault();
-  let articleId = $(this).data('id');
-  console.log("aID" + articleId);
-  let body = $('#noteInput').val().trim()
-  let noteObj = {
-    articleId,
-    body
-  }
-  $.ajax({
-    url: '/notes/post/' + articleId,
-    type: 'POST',
-    data: noteObj})
-  .then( response => window.location.href = '/articles/viewSaved')
+  $('#submitNote').on('click', function (e){
+    e.preventDefault();
+    let articleId = $(this).data('id');
+    let body = $('#noteInput').val().trim()
+    let noteObj = {
+      articleId,
+      body
+    }
+    if (!$("#noteInput").val()) {
+      $('.modal-body').append('\n' + 'Please enter a note to save!')
+    } else {
+      $.ajax({
+        url: '/notes/post/' + articleId,
+        type: 'POST',
+        data: noteObj})
+      .then( response => window.location.href = '/articles/viewSaved')
+    }  
   });
 
   //function that displays note in noteModal
-function displayNote(element, articleId){
-  let $deleteButton = $('<button>')
-    .text('X')
-    .addClass('deleteNote');
-  let $note = $('<div>')
-    .text(element.body) 
-    .append($deleteButton)
-    .attr('data-note-id', element._id)
-    .attr('data-article-id', articleId)
-    .addClass('note')
-    .appendTo('#noteArea')
-}
+  function displayNote(element, articleId){
+    // element.preventDefault();
+    let $deleteButton = $('<button>')
+      .text('X')
+      .addClass('deleteNote');
+    let $note = $('<div>')
+      .text(element.body) 
+      .append($deleteButton)
+      .attr('data-note-id', element._id)
+      .attr('data-article-id', articleId)
+      .addClass('note')
+      .appendTo('#noteArea')
+  }
+
   // displays and saves note in modal
   $(document).on('click', '.addNote', function (e){
-    $('.note').empty()
+    e.preventDefault();
+    $('.note').empty();
     $('.noteInput').val('');
     let id = $(this).data('id');
-    $('#submitNote, #noteBodyInput').attr('data-id', id)
+    $('#submitNote, #noteInput').attr('data-id', id)
     $.ajax({
       url: '/notes/getNotes/' + id,
       type: 'GET'})
@@ -84,9 +97,9 @@ function displayNote(element, articleId){
         $('#noteModal').modal('show');
       })
     });
+
    //deletes note from modal
   $(document).on('click', '.deleteNote', function (event){
-    event.stopPropagation();
     let item = $(this);
     let ids= {
       noteId: $(this).parent().data('note-id'),

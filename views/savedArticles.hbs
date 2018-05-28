@@ -2,26 +2,31 @@
   <div class="row">
     <div class="col-lg-12">
       <header class="header text-center">
-      <h1 class="savedArticlesTitle">SAVED ARTICLES</h1>
+      <br> 
+      <h1 class="savedArticlesTitle typewriter">SAVED ARTICLES</h1>
+      <br>
       <nav class="button-group">
-        <a href="/"><button class="button-dark">Home</button></a>
+        <a href="/"><button id="home_button">Home</button></a>
       </nav>
+      <br>
       </header>
-      {{#each articles}}
-        {{#if saved}}
-          <div>
-            <a href="{{link}}" class="link" target="_blank">
-              <h2 class="title">{{title}}</h2>
-            </a>
-            <div>
-              <p class="byline">{{byline}}</p>
-            </div>
-            <button class="addNote" data-toggle="modal" data-target="#modalNote" data-id="{{_id}}">Add/View Notes</button>
-            <button class="deleteArticles" data-id="{{_id}}">Delete Article</button>
-          <div>
-        {{>modalNote article_id=_id article_title=title}}      
-        {{/if}}
-      {{/each}}
+      <div>
+          {{#each articles}}
+            {{#if saved}}
+              <div class='articles'>
+                <a href="{{link}}" class="link" target="_blank">
+                  <h2 class="title">{{title}}</h2>
+                </a>
+                <div>
+                  <p class="byline">{{byline}}</p>
+                </div>
+                <button class="addNote" data-toggle="modal" data-target="#modalNote" data-id="{{_id}}">Add/View Notes</button>
+                <button class="deleteArticles" data-id="{{_id}}">Delete Article</button>
+              </div>
+            {{>modalNote article_id=_id article_title=title}}      
+            {{/if}}
+          {{/each}}        
+      </div>
     </div>
   </div>
 </div>

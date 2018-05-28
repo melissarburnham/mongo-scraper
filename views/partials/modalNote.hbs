@@ -1,21 +1,21 @@
 
   {{!-- modal for displaying and creating notes --}}
-  <div id="modalNote" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title text-center">Add a note to {{article_title}}</h4>
-        </div>
-        <div class="modal-body">
-          <div id="noteArea">
+<div id="modalNote" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-center" data-id="{{article_id}}">Add Notes</h4>
+      </div>
+      <div class="modal-body">
+        <div id="noteArea">
           <textarea type="text" id="noteInput" class="noteInput" placeholder="Enter Note"></textarea>
-          </div>
         </div>
-        <div class="modal-footer">
-          <h5 class="instructions">Click the X to delete the note!</h5>
-          <button type="submit" id="submitNote" data-id="{{article_id}}"> Save Note</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <h5 class="instructions">Click the X to delete the note!</h5>
+        <button type="submit" id="submitNote" data-id="{{article_id}}"> Save Note</button>
       </div>
     </div>
   </div>
+</div>
