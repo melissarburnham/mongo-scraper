@@ -22,4 +22,5 @@ This app allows users to scrape articles from the Memeburn website and create no
 * favicon
 
 # Demo
-
+User click to scrape articles and new articles will appear. Then, they can click to save articles and view saved articles. 
+![scrape](https://github.com/melissarburnham/mongo-scraper/blob/master/public/images/scrape.gif)
