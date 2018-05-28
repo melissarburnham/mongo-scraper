@@ -67,8 +67,9 @@ $(document).ready(function () {
 
   //function that displays note in noteModal
   function displayNote(element, articleId){
-    // element.preventDefault();
-    let $deleteButton = $('<button>')
+    // element.preventDefault()
+    // if (notes != val()){
+      let $deleteButton = $('<button>')
       .text('X')
       .addClass('deleteNote');
     let $note = $('<div>')
@@ -78,19 +79,20 @@ $(document).ready(function () {
       .attr('data-article-id', articleId)
       .addClass('note')
       .appendTo('#noteArea')
+    // }
   }
 
   // displays and saves note in modal
   $(document).on('click', '.addNote', function (e){
     e.preventDefault();
-    $('.note').empty();
-    $('.noteInput').val('');
+    $('#noteInput').val('');
     let id = $(this).data('id');
     $('#submitNote, #noteInput').attr('data-id', id)
     $.ajax({
       url: '/notes/getNotes/' + id,
       type: 'GET'})
       .then(data => {
+        $('#noteArea').empty();        
         $.each(data.notes, function (i, item){
           displayNote(item, id)
         });
