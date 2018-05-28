@@ -4,8 +4,7 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const hbs = require('hbs')
 const path = require("path");
-const exphbs = require("express-handlebars");
-var favicon = require('serve-favicon');
+const favicon = require('serve-favicon');
 
 ///initializing the app
 const app = express();
